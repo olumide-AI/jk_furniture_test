@@ -1,0 +1,478 @@
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* adjust typography defaults */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  font-size: 16px; /* Add base font size */
+  line-height: 1.5;
+}
+.nav {
+  display: flex;
+  justify-content: space-between; /* Centers the entire navbar content */
+}
+
+
+.nav ul {
+  display: flex; /*Aligns the links horizontally */
+  gap: 1.5rem; /* Adds space between each link */
+  list-style: none; /* Removes bullet points */
+  /* margin: 0; Ensures no extra spacing */
+  /* padding: 0; Ensures no extra spacing */
+}
+
+/* Styles for larger screens (768px and up) */
+@media (min-width: 768px) {
+  .nav ul {
+    gap: 15rem; /* Increase gap for desktop view */
+  }
+}
+
+.nav a {
+  /* text-decoration: none; Removes underline */
+  font-size: 1.2rem; /* Adjusts the font size */
+  color: #000000; /* Black text color */
+  font-weight: 500; /* Semi-bold */
+  transition: color 0.3s ease; /* Smooth hover transition */
+
+}
+
+.nav a:hover {
+  color: #007bff; /* Changes color on hover */
+  cursor: pointer;
+}
+
+.nav-link.active {
+  color: #0d6efd; /* A blue color for the active link */
+  font-weight: bold; /* Makes the link text bold */
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+
+/* css for video on landing page */
+/* images and videos max out at full width */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: max-content;
+  overflow: hidden;
+}
+
+.video-background {
+  filter:  brightness(50%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  color: white;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 2.0rem; /* small devices*/
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .overlay h1 {
+    font-size: 3.0rem; /* Larger size for medium/large devices */
+    
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.product-details h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+.product-details p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.img-fluid {
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .product-details h1 {
+    font-size: 1.5rem;
+  }
+  .product-details p {
+    font-size: 0.875rem;
+  }
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  .row {
+    margin-bottom: 1rem;
+  }
+}
+
+.product-image {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Make it clickable or interactive */
+  max-height: 1000px; /* Constrain image height */
+  object-fit: cover; /* Prevent distortion */
+}
+
+
+
+.product-image:hover {
+  transform: scale(1.05); /* Slight zoom-in effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+
+/* End of image layout */
+
+
+/* General row settings for the cards */
+.row-furniture {
+  margin-top: 20px;
+}
+
+/* Card styles */
+.card {
+  border: none; /* Removes card border */
+  border-radius: 10px; /* Rounds corners */
+  overflow: hidden; /* Ensures hover effects stay inside card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lifts card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deepens shadow on hover */
+}
+
+/* Image hover effects */
+.card-img-top {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05); /* Zooms image slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adds shadow */
+  opacity: 0.9; /* Slight dim effect */
+}
+
+/* Button styles */
+.btn-view-here {
+  display: block; /* Button takes up full width */
+  margin: 0 auto; /* Centers the button */
+  margin-top: 15px; /* Adds space above the button */
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px; /* Rounds button corners */
+  transition: all 0.3s ease;
+}
+
+.btn-view-here:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+
+/* Card body styles */
+.card-body {
+  text-align: center; /* Ensures content inside cards is centered */
+  padding: 15px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .btn-view-here {
+    margin-top: 10px;
+  }
+
+  .card {
+    margin-bottom: 20px; /* Adds spacing between cards */
+  }
+}
+
+
+
+/* Hero Section */
+.contact-hero {
+  background: linear-gradient(135deg, #495057, #343a40);
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Frosted overlay effect for modern look */
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark transparency overlay */
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2; /* Ensures text is above the overlay */
+}
+
+/* Headline styling */
+.contact-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 2px; /* Adds a modern feel */
+}
+
+/* Paragraph styling */
+.hero-overlay p {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  color: #dcdcdc; /* Slightly lighter color for contrast */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 3rem 1rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+}
+
+/* Contact Section */
+.contact-section {
+  margin-top: 2rem;
+}
+
+
+/* Contact Form */
+.contact-form {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+
+/*Footer column */
+.footer {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 40px 0;
+}
+.footer h5 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/*.footer  a {
+  color: #000000;
+text-decoration: none;}*/
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+.footer li {
+  margin-bottom: 10px;
+}
+.footer .col-md-4 {
+  margin-bottom: 20px;
+}
+/* End of footer column */
+
+.logo {
+  height: 40px; 
+  max-width: auto; /* Ensures the image scales properly */
+  background-color: #f8f9fa; /* Add a light background behind the logo */
+  padding: 5px; /* Add some spacing around the logo */
+  border-radius: 5px; /* Optional rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+ .faq-section {
+      max-width: 700px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .faq-section h2 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+}
+
+header .btn-group {
+  margin: 1rem 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+   max-height: 400px;
+
+}
+/* Card Styling */
+.product-card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 400px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+ #form-container {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+ .testimonial-section {
+      text-align: center;
+      padding: 50px 0;
+    }
+    .testimonial-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .testimonial-card {
+      
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+    }
+    .testimonial-rating {
+      font-size: 1.5em;
+      color: #333333;
+    }
+    .testimonial-heading {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin: 15px 0;
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: #555555;
+    }

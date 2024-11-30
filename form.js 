@@ -1,0 +1,59 @@
+"use strict";
+
+ document.getElementById("customFurnitureForm").addEventListener("submit", async function (event) {
+      event.preventDefault(); // Prevent the form from reloading the page
+
+      // Collect form data
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const furnitureType = document.getElementById("furnitureType").value;
+      const dimensions = document.getElementById("dimensions").value.trim();
+      const material = document.getElementById("material").value.trim();
+      const budget = document.getElementById("budget").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+
+      // Airtable API configuration
+      const apiKey = "Bearer patLq2nVN05VN1onU.0d2bee27d84384c7dc954b7ebac6a193a79c181704b2d45752159203feaf8348"; 
+      const baseId = "YOUR_AIRTABLE_BASE_ID"; // Replace with your Airtable Base ID
+      const tableName = "Table 1"; // Use the name of your Airtable table (e.g., "Table 1")
+
+      const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+
+      // Prepare data to send to Airtable
+      const data = {
+        fields: {
+          Name: name,
+          Email: email,
+          "Furniture Type": furnitureType,
+          Dimensions: dimensions,
+          "Material Preference": material,
+          "Budget Range": parseFloat(budget),
+          "Phone Number": phone,
+          "Additional Notes": notes,
+        },
+      };
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert("Your request has been submitted successfully!");
+          document.getElementById("customFurnitureForm").reset(); // Clear the form
+        } else {
+          const errorData = await response.json();
+          console.error("Error:", errorData);
+          alert("There was an error submitting your request. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An unexpected error occurred. Please try again.");
+      }
+    });
